@@ -1,14 +1,14 @@
-import Lottie from "lottie-react";
 import React, { use } from "react";
-import registerLottie from "../../assets/lotties/register.json";
 import { AuthContext } from "../../Context/AuthContext";
+import loginLottie from "../../assets/lotties/login.json";
+import Lottie from "lottie-react";
 import GoogleLogin from "../SocialLogin/GoogleLogin";
 import { Link } from "react-router";
 
-const Register = () => {
-    const { createUser } = use(AuthContext);
+const Login = () => {
+    const { loginUser } = use(AuthContext);
 
-    const handleRegister = (e) => {
+    const handleLogin = (e) => {
         e.preventDefault();
 
         const form = e.target;
@@ -17,7 +17,7 @@ const Register = () => {
 
         console.log(email, password);
         // createUserWithEmail and Pass
-        createUser(email, password)
+        loginUser(email, password)
             .then((result) => {
                 const user = result.user;
                 console.log(user);
@@ -32,16 +32,16 @@ const Register = () => {
             <div className="hero-content flex-col-reverse justify-between lg:flex-row-reverse md:max-w-3xl w-full mx-auto shadow-2xl rounded-2xl md:py-10 md:px-10">
                 <div className="text-center">
                     <Lottie
-                        className="w-52 md:w-72"
-                        animationData={registerLottie}
+                        className="w-72 md:w-72"
+                        animationData={loginLottie}
                         loop={true}></Lottie>
                 </div>
                 <div className="card bg-base-100 w-full md:max-w-sm shrink-0 shadow-2xl border-2 mb-10 md:mb-0">
                     <div className="card-body">
                         <h1 className="text-3xl font-bold text-center">
-                            Register now!
+                            Login now!
                         </h1>
-                        <form onSubmit={handleRegister}>
+                        <form onSubmit={handleLogin}>
                             <fieldset className="fieldset">
                                 <label className="label">Email</label>
                                 <input
@@ -58,15 +58,17 @@ const Register = () => {
                                     placeholder="Password"
                                 />
                                 <div>
-                                    
+                                    <a className="link link-hover">
+                                        Forgot password?
+                                    </a>
                                 </div>
                                 <button className="btn btn-neutral mt-4">
-                                    Register
+                                    Login
                                 </button>
                             </fieldset>
                         </form>
                         <div>
-                            <p>Already have an Account? <Link className="text-blue-500 underline" to="/login">Login</Link></p>
+                            <p>Not Register Yet? <Link className="text-blue-500 underline" to="/register">Register</Link></p>
                         </div>
                         <GoogleLogin></GoogleLogin>
                     </div>
@@ -76,4 +78,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default Login;
