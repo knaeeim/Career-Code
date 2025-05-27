@@ -6,7 +6,7 @@ const Footer = () => {
             <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
                 <aside>
                     <img src="https://i.ibb.co/HTQ33ygY/Logo.png" alt="" />
-                    <p>
+                    <p className="font-bold">
                         Dev Code Inc.
                         <br />
                         Providing reliable tech since 1992

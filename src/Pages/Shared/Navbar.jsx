@@ -56,7 +56,7 @@ const Navbar = () => {
                     </div>
                     <div className="flex items-center justify-center gap-2">
                         <img className="w-16" src="https://i.ibb.co/HTQ33ygY/Logo.png" alt="" />
-                        <a className="text-xl">{'{DevCode}'}</a>  
+                        <a className="text-xl font-bold">{'{DevCode}'}</a>  
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">

@@ -1,10 +1,24 @@
-import React from "react";
+import React, { use } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 
 const GoogleLogin = () => {
+    const { googleLogin } = use(AuthContext);
+
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then((res) => {
+                const user = res.user;
+                console.log(user);
+            })
+            .catch((error) => {
+                console.log(error.message);
+            });
+    };
+
     return (
         <div>
             <div className="divider">OR</div>
-            <button className="btn bg-white text-black border-[#e5e5e5] w-full">
+            <button onClick={handleGoogleLogin} className="btn bg-white text-black border-[#e5e5e5] w-full">
                 <svg
                     aria-label="Google logo"
                     width="16"
