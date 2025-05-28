@@ -3,11 +3,15 @@ import { AuthContext } from "../../Context/AuthContext";
 import loginLottie from "../../assets/lotties/login.json";
 import Lottie from "lottie-react";
 import GoogleLogin from "../SocialLogin/GoogleLogin";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 
 const Login = () => {
     const { loginUser } = use(AuthContext);
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state ? location.state : "/";
+    
     const handleLogin = (e) => {
         e.preventDefault();
 
@@ -21,6 +25,7 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
+                navigate(from)
             })
             .catch((error) => {
                 console.log(error.message);
@@ -70,7 +75,7 @@ const Login = () => {
                         <div>
                             <p>Not Register Yet? <Link className="text-blue-500 underline" to="/register">Register</Link></p>
                         </div>
-                        <GoogleLogin></GoogleLogin>
+                        <GoogleLogin from={from}></GoogleLogin>
                     </div>
                 </div>
             </div>

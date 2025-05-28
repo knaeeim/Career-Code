@@ -1,14 +1,17 @@
 import React, { use } from "react";
 import { AuthContext } from "../../Context/AuthContext";
+import { useNavigate } from "react-router";
 
-const GoogleLogin = () => {
+const GoogleLogin = ({ from }) => {
     const { googleLogin } = use(AuthContext);
+    const navigate = useNavigate();
 
     const handleGoogleLogin = () => {
         googleLogin()
             .then((res) => {
                 const user = res.user;
                 console.log(user);
+                navigate(from);
             })
             .catch((error) => {
                 console.log(error.message);
