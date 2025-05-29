@@ -1,16 +1,22 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import Banner from "./Banner";
 import HotJobs from "./HotJobs";
+import axios from "axios";
 
-const jobsPromise = fetch("http://localhost:3000/jobs").then((res) => res.json());
 
 const Home = () => {
+    const [jobs, setJobs] = useState([]);
+    
+    useEffect(() => {
+        axios.get("http://localhost:3000/jobs")
+        .then((res) => setJobs(res.data) )
+    }, [])
 
     return (
         <div>
             <Banner></Banner>
             <Suspense fallback={"Loading..."}>
-                <HotJobs jobsPromise={jobsPromise}></HotJobs>
+                <HotJobs jobs={jobs}></HotJobs>
             </Suspense>
         </div>
     );

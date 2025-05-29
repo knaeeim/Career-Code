@@ -21,6 +21,7 @@ const Navbar = () => {
                 {" "}
                 <NavLink to="/">Home</NavLink>{" "}
             </li>
+            {/* Role based rendering */}
             {user && (
                 <>
                     <li>
@@ -28,6 +29,9 @@ const Navbar = () => {
                     </li>
                     <li>
                         <NavLink to="/profile">Profile</NavLink>{" "}
+                    </li>
+                    <li>
+                        <NavLink to="/addJob">Add Job</NavLink>{" "}
                     </li>
                 </>
             )}
