@@ -30,8 +30,17 @@ const Navbar = () => {
                     <li>
                         <NavLink to="/profile">Profile</NavLink>{" "}
                     </li>
+                </>
+            )}
+
+            {/* Role based rendering */}
+            {user && (
+                <>
                     <li>
                         <NavLink to="/addJob">Add Job</NavLink>{" "}
+                    </li>
+                    <li>
+                        <NavLink to="/myPostedJobs">My Posted Jobs</NavLink>{" "}
                     </li>
                 </>
             )}
