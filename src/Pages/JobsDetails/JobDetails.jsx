@@ -10,6 +10,7 @@ const JobDetailsPage = () => {
         company,
         salaryRange,
         applicationDeadline,
+        deadline,
         category,
         jobType,
         company_logo,
@@ -64,7 +65,7 @@ const JobDetailsPage = () => {
                             </li>
                             <li>
                                 <strong>Application Deadline:</strong>{" "}
-                                {applicationDeadline}
+                                {applicationDeadline || deadline}
                             </li>
                         </ul>
                     </div>

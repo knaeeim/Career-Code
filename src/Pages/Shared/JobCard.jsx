@@ -10,6 +10,7 @@ const JobCard = ({ job }) => {
         company,
         salaryRange,
         applicationDeadline,
+        deadline,
         category,
         jobType,
         company_logo,
@@ -51,7 +52,7 @@ const JobCard = ({ job }) => {
                     <div className="font-bold">
                         <p>Job Type: {jobType}</p>
                         <p>Job Type: {category}</p>
-                        <p>Last Date for Application: {applicationDeadline}</p>
+                        <p>Last Date for Application: {applicationDeadline || deadline}</p>
                     </div>
                     <div className="justify-end card-actions">
                         <Link to={`/jobs/${_id}`}><button className="btn btn-primary">Show Details</button></Link>
