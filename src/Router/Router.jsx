@@ -26,7 +26,7 @@ const router = createBrowserRouter([
             {
                 path: "/jobs/:id",
                 element: <JobDetails></JobDetails>,
-                loader: ({params}) => fetch(`http://localhost:3000/jobs/${params.id}`)
+                loader: ({params}) => fetch(`https://career-code-server-zeta.vercel.app/jobs/${params.id}`)
             },
             {
                 path: '/jobApply/:id',
@@ -63,7 +63,7 @@ const router = createBrowserRouter([
                 element: <PrivateRoutes>
                     <ViewApplications></ViewApplications>
                 </PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:3000/applications/job/${params.id}`)
+                loader: ({ params }) => fetch(`https://career-code-server-zeta.vercel.app/applications/job/${params.id}`)
             },
             {
                 path: '/register',

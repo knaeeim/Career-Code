@@ -10,7 +10,7 @@ const ViewApplications = () => {
     const handleStatusChange = (event, application) => {
         const selectedStatus = event.target.value;
         console.log(application);
-        axios.patch(`http://localhost:3000/applications/${application}`, {status: selectedStatus})
+        axios.patch(`https://career-code-server-zeta.vercel.app/applications/${application}`, {status: selectedStatus})
         .then(res => {
             if(res.data.modifiedCount) {
                 toast.success("Status updated successfully");

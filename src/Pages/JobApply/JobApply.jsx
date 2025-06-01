@@ -11,7 +11,7 @@ const JobApply = () => {
 
     // Fetch job details if needed, e.g., using useEffect
     useEffect(() => {
-        axios.get(`http://localhost:3000/jobs/${id}`)
+        axios.get(`https://career-code-server-zeta.vercel.app/jobs/${id}`)
             .then((res) => {
                 setJobDetails(res.data);
             })
@@ -29,7 +29,7 @@ const JobApply = () => {
 
         // post data in the server
         axios
-            .post("http://localhost:3000/applications", applyInfo)
+            .post("https://career-code-server-zeta.vercel.app/applications", applyInfo)
             .then((res) => {
                 if (res.data.insertedId) {
                     toast.success("Application submitted successfully!");

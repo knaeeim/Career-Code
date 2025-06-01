@@ -29,7 +29,7 @@ const AddJob = () => {
         console.log(newJob);
 
         // save to the database
-        axios.post("http://localhost:3000/jobs", newJob)
+        axios.post("https://career-code-server-zeta.vercel.app/jobs", newJob)
             .then((res) => {
                 if (res.data.insertedId) {
                     toast.success("Job Added Successfully");

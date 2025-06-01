@@ -1,13 +1,10 @@
-import React, { use, useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router";
+import Loading from "../Pages/LaodingPage/Loading";
 
-const JobList = ({ jobsCreatedByPromise }) => {
-    const [jobs, setJobs] = useState([]);
-    const postedJobs = use(jobsCreatedByPromise);
+const JobList = ({ postedJobs }) => {
 
-    useEffect(() => {
-        setJobs(postedJobs);
-    }, [postedJobs]);
+    const jobs = postedJobs;
 
     return (
         <div className="my-10">

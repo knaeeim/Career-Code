@@ -8,7 +8,7 @@ const Home = () => {
     const [jobs, setJobs] = useState([]);
     
     useEffect(() => {
-        axios.get("http://localhost:3000/jobs")
+        axios.get("https://career-code-server-zeta.vercel.app/jobs", { withCredentials: true })
         .then((res) => setJobs(res.data) )
     }, [])
 

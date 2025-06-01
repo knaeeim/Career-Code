@@ -2,20 +2,31 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
+import Loading from "../LaodingPage/Loading";
 
 const MyApplication = () => {
     const { user } = useAuth();
     const [myApplication, setMyApplication] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         axios
-            .get(`http://localhost:3000/applications?email=${user.email}`)
+            .get(`https://career-code-server-zeta.vercel.app/applications?email=${user.email}`, {
+                headers: {
+                    Authorization: `Bearer ${user.accessToken}`
+                }
+            })
             .then((res) => {
                 setMyApplication(res.data);
+                setIsLoading(false);
                 console.log(res.data);
             })
             .catch((error) => toast.error(error.message));
-    }, [user.email]);
+    }, [user]);
+
+    if(isLoading) {
+        return <Loading></Loading>
+    }
 
     return (
         <div className="my-10">
